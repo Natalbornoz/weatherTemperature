@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const WeatherExtraInfo = ({ humidity, wind }) => (
     <div>
-        <span>{`${humidity} % |`}</span>
-        <span>{`${wind} wind`}</span>
+        <span className='weatherExtrainfo'>{`Humedad ${humidity} % |`}</span>
+        <span className='weatherExtrainfo'>{`Vientos: ${wind} wind`}</span>
     </div>
 );
 
