@@ -93,6 +93,7 @@
 import React, { Component } from 'react';
 import Location from './Location';
 import WeatherData from './WeatherData';
+import transformWeather from './../../services/transformWeather';
 import {
     CLOUD,
     CLOUDY,
@@ -103,6 +104,7 @@ import {
 } from './../../constant/weathers';
 // import './styles.css';
 
+//const para llamar a la api
 const api_key = '3964db249e6c82ee05522ad1fa60775e';
 const location = 'Buenos Aires,ar';
 const api_weather = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}&units=metric`;
@@ -142,24 +144,25 @@ class WeatherLocation extends Component {
         }
     }
 
-    //fucnion para pedir que traiga el icono del sol
-    getWeatherState = (weather) => {
-        return SUN;
-    }
+    //Esto se fue a trasformWeather
+    // //fucnion para pedir que traiga el icono del sol
+    // getWeatherState = (weather) => {
+    //     return SUN;
+    // }
 
-    getData = (weather_data) => {
-        const { humidity, temp } = weather_data.main;
-        const { speed } = weather_data.wind;
-        const weatherState = this.getWeatherState(this.weather);
+    // getData = (weather_data) => {
+    //     const { humidity, temp } = weather_data.main;
+    //     const { speed } = weather_data.wind;
+    //     const weatherState = this.getWeatherState(this.weather);
 
-        const data = {
-            humidity,
-            temperature: temp,
-            weatherState,
-            wind: `${speed} m/s`, //template string
-        }
-        return data;
-    }
+    //     const data = {
+    //         humidity,
+    //         temperature: temp,
+    //         weatherState,
+    //         wind: `${speed} m/s`, //template string
+    //     }
+    //     return data;
+    // }
 
     handleUpdateClick = () => {
         /*
@@ -171,7 +174,8 @@ class WeatherLocation extends Component {
             console.log(data);
             return data.json();
         }).then(weather_data => {
-            const data = this.getData(weather_data);
+            //usamos this cuando estoi apuntando algo que esta dentro de mi funcion
+            const data = transformWeather(weather_data);
             this.setState({ data });
         })
 
