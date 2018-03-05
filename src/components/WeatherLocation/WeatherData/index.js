@@ -8,19 +8,22 @@ const WeatherData = ({ data }) => {
     const { temperature, weatherState, humidity, wind } = data;
     return(
     <div className='weatherDataCont'>
-        <WeatherTemperature temperature={'temperature'}
+        <WeatherTemperature temperature={temperature}
         weatherState = {weatherState} />
-        <WeatherExtraInfo humidity={humidity} wind={'10m/s'} />
+        <WeatherExtraInfo humidity={humidity} wind={wind} />
     </div>
     )
 }
 
-WeatherData.PropTypes = {
-    data: PropTypes.shape({
-        temperature: PropTypes.number.isRequired,
-        weatherState: PropTypes.string.isRequired,
-        humidity: PropTypes.number.isRequired,
-        wind: PropTypes.string.isRequired,
-    })
-}
+ WeatherData.propTypes = {
+     //SHAPE valida datos
+     data: PropTypes.shape({
+         temperature: PropTypes.number.isRequired,
+         weatherState: PropTypes.string.isRequired,
+         humidity: PropTypes.number.isRequired,
+         wind: PropTypes.string.isRequired,
+     })
+ }
+
+
 export default WeatherData;
