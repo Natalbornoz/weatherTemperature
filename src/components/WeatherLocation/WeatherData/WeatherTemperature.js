@@ -6,9 +6,13 @@ import {CLOUD,
         SUN,
         RAIN,
         SNOW,
-        WINDY
+        WINDY,
+        THUNDER,
+        DRIZZLE
     } from './../../../constant/weathers';
+import './styles.css';    
 
+// aca va el nombre del icono
 const StateToIconName = (weatherState) => {
     switch (weatherState) {
         case CLOUD:
@@ -23,14 +27,20 @@ const StateToIconName = (weatherState) => {
         return 'snow';
         case WINDY:
         return 'windy';
+        case THUNDER:
+        return 'day-thunderstorm';
+        case DRIZZLE:
+        return 'day-showers';
         default:
-            return 'day-sunny';
+        return 'day-sunny';
     }
 }
 const getWeatherIcon = (weatherState) => {
     return (
+        <div className="icon">
         <WeatherIcons name = {StateToIconName(weatherState)}
         size = '2x'/>
+        </div>
     )
 }
 const WeatherTemperature = ({ temperature, weatherState }) => (
