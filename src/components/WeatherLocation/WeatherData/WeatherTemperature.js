@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'; 
 import PropTypes from 'prop-types';
-import WeatherIcons from 'react-weathericons';//import siempre con mayuscula y from con min
+import WeatherIcons from 'react-weathericons'; 
 import {CLOUD,
         CLOUDY,
         SUN,
@@ -9,50 +9,48 @@ import {CLOUD,
         WINDY,
         THUNDER,
         DRIZZLE
-    } from './../../../constant/weathers';
-import './styles.css';    
+} from './../../../constant/weathers.js';
+import './styles.css';
 
-// aca va el nombre del icono
-const StateToIconName = (weatherState) => {
+const StateToIconName = (weatherState) => { 
     switch (weatherState) {
-        case CLOUD:
-        return 'cloud';
+        case CLOUD: 
+            return 'cloud'; 
         case CLOUDY:
-        return 'cloudy';
+            return 'cloudy';
         case SUN:
-        return 'day-sunny';
+            return 'day-sunny';
         case RAIN:
-        return 'snow';
+            return 'rain';
         case SNOW:
-        return 'snow';
+            return 'snow';
         case WINDY:
-        return 'windy';
+            return 'windy';
         case THUNDER:
-        return 'day-thunderstorm';
+            return 'day-thunderstorm';
         case DRIZZLE:
-        return 'day-showers';
+            return 'day-showers';    
         default:
-        return 'day-sunny';
+            return 'day-sunny';
     }
 }
 const getWeatherIcon = (weatherState) => {
-    return (
-        <div className="icon">
-        <WeatherIcons name = {StateToIconName(weatherState)}
-        size = '2x'/>
-        </div>
+  return (
+    <div className='icon'>
+      <WeatherIcons name = {StateToIconName(weatherState)} size = '3x' />
+    </div>
     )
 }
-const WeatherTemperature = ({ temperature, weatherState }) => (
+
+const WeatherTemperature = ({temperature, weatherState}) => ( 
     <div>
+        
         {getWeatherIcon(weatherState)}
         <span>{`${temperature} °C`}</span>
     </div>
-)
+);
 WeatherTemperature.propTypes = {
     temperature: PropTypes.number.isRequired,
     weatherState: PropTypes.string.isRequired,
 }
 export default WeatherTemperature;
-
-

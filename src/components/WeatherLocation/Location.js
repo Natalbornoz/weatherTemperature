@@ -1,21 +1,18 @@
 import React from 'react';
-import Proptypes from 'prop-types';
+import PropTypes from 'prop-types';
 
-const Location = ({ city }) => (//{
-    //  const city = props.city;
-    //console.log(props);
-    // const {city} = props;
-    // return (
-     <div>
-         <h1>
-             {city}
-         </h1>
-     </div>
+const Location = ({city}) => (
+// const city = props.city;
+// const {city} = props;
+  <div>
+    <h1 className='locationCont'>
+      {city}
+    </h1>
+  </div>
 );
-//);
-//};
 
-Location.Proptypes = {
-    city: Proptypes.string.isRequire,
+Location.propTypes = {
+  city: PropTypes.string.isRequired,
 }
+
 export default Location;
